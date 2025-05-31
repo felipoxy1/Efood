@@ -1,6 +1,6 @@
 import { Hero, Logo, PageTitle } from './style'
 import heroImg from '../../assets/Background.svg'
-import LogoImg from '../../assets/logo.svg'
+import LogoImg from '../../assets/Logo.svg'
 import { useLocation } from 'react-router-dom'
 
 const Header = () => {
