@@ -1,5 +1,5 @@
 import Home from './pages/Home'
-import HiokiSushi from './pages/Restaurantes/HiokiSushi'
+import Restaurante from './pages/Restaurante'
 import { GlobalCss } from './styles'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
@@ -9,8 +9,8 @@ const rotas = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: '/hiokiSushi',
-    element: <HiokiSushi />,
+    path: '/restaurante/:id',
+    element: <Restaurante />,
   },
 ])
 

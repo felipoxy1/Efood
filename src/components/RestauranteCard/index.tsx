@@ -1,47 +1,36 @@
 import * as S from './style'
 import Estrela from '../../assets/Estrela.svg'
 import Tag from '../Tag'
+import type { Restaurante } from '../../models/Restaurante'
 
 type Props = {
-  capa: string
-  nome: string
-  avaliacao: number
-  desc: string
-  page: string
-  categoria: string[]
+  restaurante: Restaurante
 }
 
-const Restaurante = ({
-  capa,
-  nome,
-  avaliacao,
-  desc,
-  page,
-  categoria,
-}: Props) => {
+const RestauranteCard = ({ restaurante }: Props) => {
   return (
     <S.Card>
-      <S.ImagemResta src={capa} alt="" />
+      <S.ImagemResta src={restaurante.capa} alt={restaurante.titulo} />
       <S.TagsContainer>
-        {categoria.map(categoria => (
-          <Tag>{categoria}</Tag>
-        ))}
+        <Tag>{restaurante.tipo}</Tag>
       </S.TagsContainer>
       <S.RestaTextArea>
-        <S.RestaTitle>{nome}</S.RestaTitle>
+        <S.RestaTitle>{restaurante.titulo}</S.RestaTitle>
         <S.Avaliacao className="avaliacao">
           <div>
-            <S.NotaDeAvaliacao>{avaliacao}</S.NotaDeAvaliacao>
+            <S.NotaDeAvaliacao>{restaurante.avaliacao}</S.NotaDeAvaliacao>
           </div>
           <div>
             <img src={Estrela} alt="" />
           </div>
         </S.Avaliacao>
       </S.RestaTextArea>
-      <S.RestText>{desc}</S.RestText>
-      <S.LinkStyled to={page}>Saiba mais</S.LinkStyled>
+      <S.RestText>{restaurante.descricao}</S.RestText>
+      <S.LinkStyled to={`/restaurante/${restaurante.id}`}>
+        Saiba mais
+      </S.LinkStyled>
     </S.Card>
   )
 }
 
-export default Restaurante
+export default RestauranteCard

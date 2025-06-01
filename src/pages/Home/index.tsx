@@ -1,15 +1,20 @@
 import Header from '../../components/Header'
 import Restaurantes from '../../components/Restaurantes'
 import { Container } from '../../styles'
-import { restaurantes } from '../../data/restaurantes'
 import Footer from '../../components/footer'
+import { useGetFeatureRestaurantesQuery } from '../../services/api'
 
 const Home = () => {
+  const { data, error, isLoading } = useGetFeatureRestaurantesQuery()
+
+  if (isLoading) return <p>Carregando restaurantes...</p>
+  if (error) return <p>Erro ao carregar restaurantes.</p>
+
   return (
     <>
       <Header />
       <Container>
-        <Restaurantes restauranteModel={restaurantes} />
+        {data && <Restaurantes restauranteModel={data} />}
       </Container>
       <Footer />
     </>

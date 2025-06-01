@@ -14,6 +14,7 @@ export const Card = styled.div`
 
 export const ImagemResta = styled.img`
   width: 470px;
+  height: 217px;
 `
 
 export const RestaTitle = styled.h2`

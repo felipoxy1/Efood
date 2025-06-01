@@ -1,27 +1,18 @@
 import * as S from './style'
-import RestauranteModel from '../../models/Restaurante'
-import Restaurante from '../RestauranteCard'
+import { type Restaurante as RestauranteType } from '../../models/Restaurante'
+import RestauranteCard from '../RestauranteCard'
 
 type Props = {
-  restauranteModel: RestauranteModel[]
+  restauranteModel: RestauranteType[]
 }
 
 const Restaurantes = ({ restauranteModel }: Props) => {
   return (
     <S.Resta>
       {restauranteModel.map(restaunt => (
-        <Restaurante
-          key={restaunt.id}
-          capa={restaunt.capa}
-          nome={restaunt.nome}
-          avaliacao={restaunt.avaliacao}
-          desc={restaunt.desc}
-          page={restaunt.page}
-          categoria={restaunt.categorias}
-        />
+        <RestauranteCard key={restaunt.id} restaurante={restaunt} />
       ))}
     </S.Resta>
   )
 }
-
 export default Restaurantes
