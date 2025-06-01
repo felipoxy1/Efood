@@ -1,7 +1,7 @@
 import * as S from './style'
 import heroImg from '../../assets/Background.svg'
 import LogoImg from '../../assets/Logo.svg'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 const Header = () => {
   const location = useLocation()
