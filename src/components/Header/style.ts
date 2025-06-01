@@ -12,12 +12,14 @@ export const Hero = styled.div<HeroProps>`
   display: block;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 export const Logo = styled.img`
   width: 125px;
   height: 57.5px;
-  margin-left: 46.7%;
   margin-top: 40px;
 `
 
@@ -39,7 +41,6 @@ export const HeaderNav = styled.div`
   margin: 0 auto;
   padding: 60px 20px;
   ${Logo} {
-    margin-left: 0;
     margin-top: 0;
   }
 
