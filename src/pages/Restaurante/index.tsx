@@ -1,6 +1,7 @@
 import Header from '../../components/Header'
 import { useParams } from 'react-router-dom'
 import { useGetRestauranteByIdQuery } from '../../services/api'
+import Banner from '../../components/Banner'
 
 const Restaurante = () => {
   const { id } = useParams<{ id: string }>()
@@ -31,8 +32,7 @@ const Restaurante = () => {
   return (
     <>
       <Header />
-      <h1>{restaurante.titulo}</h1>
-      <p>{restaurante.descricao}</p>
+      <Banner />
     </>
   )
 }
