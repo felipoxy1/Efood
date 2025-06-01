@@ -1,23 +1,31 @@
-import { Hero, Logo, PageTitle } from './style'
+import * as S from './style'
 import heroImg from '../../assets/Background.svg'
 import LogoImg from '../../assets/Logo.svg'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const Header = () => {
   const location = useLocation()
   const isHome = location.pathname === '/'
 
   return (
-    <Hero isHome={isHome} style={{ backgroundImage: `url(${heroImg})` }}>
-      <Logo src={LogoImg} alt="Logo" />
-      {isHome && (
+    <S.Hero isHome={isHome} style={{ backgroundImage: `url(${heroImg})` }}>
+      {isHome ? (
         <>
-          <PageTitle>
+          <S.Logo src={LogoImg} alt="Logo" />
+          <S.PageTitle>
             Viva experiências gastronômicas <br /> no conforto da sua casa
-          </PageTitle>
+          </S.PageTitle>
+        </>
+      ) : (
+        <>
+          <S.HeaderNav>
+            <S.LinkTo to="/">Restaurantes</S.LinkTo>
+            <S.Logo src={LogoImg} alt="Logo" />
+            <button>0 produto(s) no carrinho</button>
+          </S.HeaderNav>
         </>
       )}
-    </Hero>
+    </S.Hero>
   )
 }
 

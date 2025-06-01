@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom'
+import { cores } from './../../styles'
 import styled from 'styled-components'
-import { cores } from '../../styles'
 
 interface HeroProps {
   isHome?: boolean
@@ -27,4 +28,38 @@ export const PageTitle = styled.h1`
   text-align: center;
   margin-top: 140px;
   color: ${cores.vermelho};
+`
+
+export const HeaderNav = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  ${Logo} {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  button {
+    background: none;
+    border: none;
+    color: ${cores.vermelho};
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    cursor: pointer;
+  }
+`
+
+export const LinkTo = styled(Link)`
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: ${cores.vermelho};
+  text-decoration: none;
 `
