@@ -2,6 +2,8 @@ import Header from '../../components/Header'
 import { useParams } from 'react-router-dom'
 import { useGetRestauranteByIdQuery } from '../../services/api'
 import Banner from '../../components/Banner'
+import Footer from '../../components/footer'
+import PratoCard from '../../components/PratoCard'
 
 const Restaurante = () => {
   const { id } = useParams<{ id: string }>()
@@ -16,6 +18,7 @@ const Restaurante = () => {
       <>
         <Header />
         <p>Carregando restaurante...</p>
+        <Footer />
       </>
     )
   }
@@ -25,6 +28,7 @@ const Restaurante = () => {
       <>
         <Header />
         <p>Restaurante com id {id} não encontrado.</p>
+        <Footer />
       </>
     )
   }
@@ -33,6 +37,7 @@ const Restaurante = () => {
     <>
       <Header />
       <Banner />
+      <Footer />
     </>
   )
 }
