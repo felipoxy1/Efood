@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom'
 import { useGetRestauranteByIdQuery } from '../../services/api'
 import Banner from '../../components/Banner'
 import Footer from '../../components/footer'
-import PratoCard from '../../components/PratoCard'
+import PratosLista from '../../components/PratosLista'
+import { Container } from '../../styles'
 
 const Restaurante = () => {
   const { id } = useParams<{ id: string }>()
@@ -37,6 +38,9 @@ const Restaurante = () => {
     <>
       <Header />
       <Banner />
+      <Container>
+        <PratosLista />
+      </Container>
       <Footer />
     </>
   )

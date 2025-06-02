@@ -1,13 +1,21 @@
-import { type Prato } from '../../models/Restaurante'
+import type { Prato } from '../../models/Restaurante'
+import * as S from './style'
 
 type Props = {
-  pratos: Prato[]
+  prato: Prato
 }
 
-const PratoCard = () => {
+const PratoCard = ({ prato }: Props) => {
   return (
     <>
-      <h2>TEste</h2>
+      <S.PratoCard>
+        <S.PratoImg src={prato.foto} alt="" />
+        <S.PratoTextArea>
+          <S.PratoTitle>{prato.nome}</S.PratoTitle>
+          <S.PratoDesc>{prato.descricao}</S.PratoDesc>
+          <S.PratoButtom>Adicionar ao carrinho</S.PratoButtom>
+        </S.PratoTextArea>
+      </S.PratoCard>
     </>
   )
 }

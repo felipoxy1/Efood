@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import type { Restaurante } from '../models/Restaurante'
+import type { Restaurante, Prato } from '../models/Restaurante'
 
 const api = createApi({
   baseQuery: fetchBaseQuery({
@@ -9,8 +9,9 @@ const api = createApi({
     getFeatureRestaurantes: builder.query<Restaurante[], void>({
       query: () => '/restaurantes',
     }),
-    getFeaturePratos: builder.query<Restaurante, string>({
+    getFeaturePratos: builder.query<Prato[], string>({
       query: id => `/restaurantes/${id}`,
+      transformResponse: (response: Restaurante) => response.cardapio,
     }),
     getRestauranteById: builder.query<Restaurante, number>({
       query: id => `/restaurantes/${id}`,
