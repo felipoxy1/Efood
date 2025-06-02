@@ -7,12 +7,21 @@ type Props = {
 }
 
 const Restaurantes = ({ restauranteModel }: Props) => {
+  const restaurantesOrdenadosPorDestaque = [...restauranteModel].sort(
+    (a, b) => {
+      if (a.destacado === b.destacado) return 0
+      if (a.destacado) return -1
+      return 1
+    },
+  )
+
   return (
     <S.Resta>
-      {restauranteModel.map(restaunt => (
+      {restaurantesOrdenadosPorDestaque.map(restaunt => (
         <RestauranteCard key={restaunt.id} restaurante={restaunt} />
       ))}
     </S.Resta>
   )
 }
+
 export default Restaurantes
