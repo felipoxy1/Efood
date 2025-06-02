@@ -12,7 +12,14 @@ const RestauranteCard = ({ restaurante }: Props) => {
     <S.Card>
       <S.ImagemResta src={restaurante.capa} alt={restaurante.titulo} />
       <S.TagsContainer>
-        <Tag>{restaurante.tipo}</Tag>
+        {restaurante.destacado ? (
+          <>
+            <Tag>Restaurante Destacado</Tag>
+            <Tag>{restaurante.tipo}</Tag>
+          </>
+        ) : (
+          <Tag>{restaurante.tipo}</Tag>
+        )}
       </S.TagsContainer>
       <S.RestaTextArea>
         <S.RestaTitle>{restaurante.titulo}</S.RestaTitle>
