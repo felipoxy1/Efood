@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom'
 import PratoCard from '../PratoCard'
 import * as S from './style'
 import { useGetFeaturePratosQuery } from '../../services/api'
-import type { Prato } from '../../models/Restaurante'
 
 const PratosLista = () => {
   const { id } = useParams<{ id: string }>()
