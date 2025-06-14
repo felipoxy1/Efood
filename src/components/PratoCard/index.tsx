@@ -2,6 +2,8 @@ import { useState } from 'react'
 import type { Prato } from '../../models/Restaurante'
 import * as S from './style'
 import Fechar from '../../assets/fechar.svg'
+import { useDispatch } from 'react-redux'
+import { add, open } from '../../store/reducers/cart'
 
 type Props = {
   prato: Prato
@@ -9,6 +11,13 @@ type Props = {
 
 const PratoCard = ({ prato }: Props) => {
   const [modalAberto, setModalAberto] = useState(false)
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    dispatch(add(prato))
+    setModalAberto(false)
+    dispatch(open())
+  }
 
   return (
     <>
@@ -38,7 +47,7 @@ const PratoCard = ({ prato }: Props) => {
                     <h4>{prato.nome}</h4>
                     <p>{prato.descricao}</p>
                     <p>{prato.porcao}</p>
-                    <S.AddCartButton>
+                    <S.AddCartButton onClick={addToCart}>
                       Adicionar ao carrinho - R${prato.preco}0
                     </S.AddCartButton>
                   </S.ModalContentText>

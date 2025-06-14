@@ -36,7 +36,7 @@ export const PratoDesc = styled.p`
 `
 
 export const PratoButtom = styled.button`
-  width: 310px;
+  width: 306px;
   font-size: 14px;
   font-weight: 700;
   line-height: 100%;
@@ -131,4 +131,5 @@ export const AddCartButton = styled.button`
   line-height: 100%;
   width: max-content;
   padding: 4px 6px;
+  cursor: pointer;
 `

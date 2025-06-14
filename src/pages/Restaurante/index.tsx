@@ -5,6 +5,7 @@ import Banner from '../../components/Banner'
 import Footer from '../../components/footer'
 import PratosLista from '../../components/PratosLista'
 import { Container } from '../../styles'
+import Carrinho from '../../components/Carrinho'
 
 const Restaurante = () => {
   const { id } = useParams<{ id: string }>()
@@ -41,6 +42,7 @@ const Restaurante = () => {
       <Container>
         <PratosLista />
       </Container>
+      <Carrinho />
       <Footer />
     </>
   )
